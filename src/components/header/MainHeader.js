@@ -3,6 +3,7 @@ import AvatarImage from "../../assets/images/image-avatar.png";
 import MenuIcon from "../icons/MenuIcon";
 import CartIcon from "../icons/CartIcon";
 import IconClose from "../icons/IconClose";
+import NavLinkHeader from "./NavLinkHeader";
 import { useState } from "react";
 
 const MainHeader = () => {
@@ -21,31 +22,34 @@ const MainHeader = () => {
   };
 
   return (
-    <header className="container mx-auto flex items-center gap-8 bg-white px-4 py-8">
-      <button className="md:hidden" onClick={handleOpenMenu}>
-        <MenuIcon />
-      </button>
-
-      <img className="mr-auto mb-1 h-5 md:mr-0" src={LogoSneakes} alt="" />
-
-      <nav className={navClass}>
-        <button className="mb-12 md:hidden" onClick={handleCloseMenu}>
-          <IconClose />
+    <>
+      <header className="container mx-auto flex items-center gap-8 bg-white px-4">
+        <button className="md:hidden" onClick={handleOpenMenu}>
+          <MenuIcon />
         </button>
-        <a href="#"> Collections </a>
-        <a href="#"> Men </a>
-        <a href="#"> Women </a>
-        <a href="#"> About </a>
-        <a href="#"> Contact </a>
-      </nav>
 
-      <div className="flex gap-4">
-        <button>
-          <CartIcon />
-        </button>
-        <img className="w-10" src={AvatarImage} alt="" />
-      </div>
-    </header>
+        <img className="mr-auto mb-1 h-5 md:mr-0" src={LogoSneakes} alt="" />
+
+        <nav className={navClass}>
+          <button className="mb-12 md:hidden" onClick={handleCloseMenu}>
+            <IconClose />
+          </button>
+          <NavLinkHeader text="Collections" />
+          <NavLinkHeader text="Men" />
+          <NavLinkHeader text="Women" />
+          <NavLinkHeader text="About" />
+          <NavLinkHeader text="Contact" />
+        </nav>
+
+        <div className="flex gap-4">
+          <button>
+            <CartIcon />
+          </button>
+          <img className="w-10" src={AvatarImage} alt="" />
+        </div>
+      </header>
+      <span className="container mx-auto hidden h-[1px] w-full bg-gray-500 md:block"></span>
+    </>
   );
 };
 
